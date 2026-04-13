@@ -40,9 +40,9 @@ jobs:
         run: |
           gsutil cp flight_booking_data_pipeline/variables/dev/variables.json gs://us-central1-airflow-test-1-24d2205c-bucket/data/dev/variables.json
       # Import Variables into Airflow-DEV
-      - name: Import Variables into Airflow-DEV
+      - name: Import Variables into Airflow-test-1
         run: |
-          gcloud composer environments run airflow-dev \
+          gcloud composer environments run airflow-test-1 \
             --location us-central1 \
             variables import -- /home/airflow/gcs/data/dev/variables.json
 
@@ -56,7 +56,7 @@ jobs:
       - name: Upload Airflow DAG to DEV Environment (Dag Folder)
         run: |
           gcloud composer environments storage dags import \
-            --environment airflow-dev \
+            --environment airflow-test-1 \
             --location us-central1 \
             --source airflow_job/airflow_job.py
 
@@ -96,7 +96,7 @@ jobs:
       # Import Variables into Airflow-PROD
       - name: Import Variables into Airflow-PROD
         run: |
-          gcloud composer environments run airflow-prod \
+          gcloud composer environments run airflow-test-1 \
             --location us-central1 \
             variables import -- /home/airflow/gcs/data/prod/variables.json
 
@@ -109,6 +109,6 @@ jobs:
       - name: Upload Airflow DAG to PROD Environment (Dag Folder)
         run: |
           gcloud composer environments storage dags import \
-            --environment airflow-prod \
+            --environment airflow-test-1 \
             --location us-central1 \
             --source airflow_job/airflow_job.py
