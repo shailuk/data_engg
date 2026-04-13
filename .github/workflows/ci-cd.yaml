@@ -25,6 +25,7 @@ jobs:
         with:
           workload_identity_provider: 'projects/1061956692764/locations/global/workloadIdentityPools/nsk-github-pool/providers/github-provider'
           service_account: '1061956692764-compute@developer.gserviceaccount.com'
+          project_id: 'project-0bc8a567-62b7-4045-a22'
         #with:
         #  credentials_json: ${{ secrets.GCP_SA_KEY }}
 
@@ -77,6 +78,7 @@ jobs:
         with:
           workload_identity_provider: 'projects/1061956692764/locations/global/workloadIdentityPools/nsk-github-pool/providers/github-provider'
           service_account: '1061956692764-compute@developer.gserviceaccount.com'
+          project_id: 'project-0bc8a567-62b7-4045-a22'
         #with:
         #  credentials_json: ${{ secrets.GCP_SA_KEY }}
 
