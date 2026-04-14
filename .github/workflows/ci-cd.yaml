@@ -111,4 +111,4 @@ jobs:
           gcloud composer environments storage dags import \
             --environment airflow-test-1 \
             --location us-central1 \
-            --flight_booking_data_pipeline/airflow_job/airflow_job.py
+            --source flight_booking_data_pipeline/airflow_job/airflow_job.py
