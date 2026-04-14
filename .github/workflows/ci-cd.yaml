@@ -91,10 +91,10 @@ jobs:
       # Upload `variables.json` to Composer bucket
       - name: Upload Variables JSON to GCS
         run: |
-          gsutil cp flight_booking_data_pipeline/variables/dev/variables.json gs://us-central1-airflow-test-1-1c727776-bucket/data/dev/variables.json
+          gsutil cp flight_booking_data_pipeline/variables/prod/variables.json gs://us-central1-airflow-test-1-1c727776-bucket/data/prod/variables.json
 
       # Import Variables into Airflow-PROD
-      - name: Import Variables into Airflow-PROD
+      - name: Import Variables into airflow-test-1
         run: |
           gcloud composer environments run airflow-test-1 \
             --location us-central1 \
